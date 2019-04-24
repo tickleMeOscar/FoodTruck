@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".reviewlandingpage">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_Find"
+        android:layout_width="365dp"
+        android:layout_height="68dp"
+        android:layout_below="@+id/customerDashboard"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
+
+        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:onClick="leaveReview"
+        android:padding="12dp"
+        android:text="LEAVE A REVIEW"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_Review"
+        android:layout_width="365dp"
+        android:layout_height="68dp"
+        android:layout_below="@+id/btn_Find"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:onClick="readReview"
+        android:padding="12dp"
+        android:text="Read reviews"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_signOut"
+        android:layout_width="365dp"
+        android:layout_height="68dp"
+        android:layout_below="@+id/btn_Review"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:onClick="home"
+        android:padding="12dp"
+        android:text="Home"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/customerDashboard"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="32dp"
+        app:srcCompat="@drawable/customerdashboard" />
+
+</RelativeLayout>

@@ -10,6 +10,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import android.view.View;
 import java.util.ArrayList;
@@ -44,29 +45,36 @@ public class map extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap)
-    {
+    public void onMapReady(GoogleMap googleMap) {
         ArrayList<ArrayList> newArray = test.nest;
         mMap = googleMap;
         ArrayList<LatLng> latlngs = new ArrayList<>();
 
         //To loop over the lat and lang values of all food trucks in database
-        for(int i=0;i<newArray.size();i++)
-        {
-            float temp  = Float.parseFloat((newArray.get(i)).get(1).toString());
+        for (int i = 0; i < newArray.size(); i++) {
+            float temp = Float.parseFloat((newArray.get(i)).get(1).toString());
             float temp2 = Float.parseFloat((newArray.get(i)).get(2).toString());
 
             //Adding lat and lang values of all the food trucks
-            latlngs.add(i,new LatLng(temp,temp2));
+            latlngs.add(i, new LatLng(temp, temp2));
             mMap.addMarker(new MarkerOptions().position(latlngs.get(i))
                     .title((newArray.get(i)).get(0).toString())
-                    .snippet((newArray.get(i)).get(3).toString()+"-"+(newArray.get(i)).get(4).toString()+" "+(newArray.get(i)).get(5).toString()));
+                    .snippet((newArray.get(i)).get(3).toString() + "-" + (newArray.get(i)).get(4).toString() + " " + (newArray.get(i)).get(5).toString()));
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latlngs.get(i)));
             mMap.setMinZoomPreference(14.0f);
             mMap.setMaxZoomPreference(22.0f);
+
+            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    Intent intent1 = new Intent(getApplicationContext(), reviewlandingpage.class);
+                    startActivity(intent1);
+                }
+
+            });
         }
-     }
+    }
      public void onSignout(View v)
      {
          Intent intent = new Intent(getApplicationContext(), MainActivity.class);
