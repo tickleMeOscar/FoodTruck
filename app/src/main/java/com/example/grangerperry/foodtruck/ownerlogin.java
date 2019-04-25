@@ -61,7 +61,6 @@ public class ownerlogin extends AppCompatActivity {
 
                             EditText user = (EditText)findViewById(R.id.input_username);
                             String text =  user.getText().toString();
-
                             intent.putExtra(new_string,text);
                             startActivity(intent);
                         }

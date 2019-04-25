@@ -1,43 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".readreview">
+    tools:context=".makereview">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="395dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <TextView
+            android:id="@+id/CompanyReview"
+            android:layout_width="171dp"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:text="Company:"
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="224dp"
+            tools:layout_editor_absoluteY="133dp" />
 
         <TextView
             android:id="@+id/reviewOne"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Review One"
-            android:textSize="30sp" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Company:"
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="240dp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="395dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow">
+
+        <TextView
+            android:id="@+id/reviewTwo3"
+            android:layout_width="171dp"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:text="Customer:"
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="125dp"
+            tools:layout_editor_absoluteY="236dp" />
 
         <TextView
             android:id="@+id/reviewTwo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Review Two"
-            android:textSize="30sp" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="125dp"
+            tools:layout_editor_absoluteY="236dp" />
 
-        <TextView
-            android:id="@+id/reviewThree"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Review Three"
-            android:textSize="30sp" />
+    </TableRow>
 
-        <Button
-            android:id="@+id/readReview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Back" />
+    <TextView
+        android:id="@+id/reviewThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:text="Please rate your experience"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    </LinearLayout>
-</RelativeLayout>
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewThree" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Review:"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/reviewThree"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow2" />
+
+</android.support.constraint.ConstraintLayout>

@@ -2,8 +2,10 @@ package com.example.grangerperry.foodtruck;
 
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+
 import com.firebase.client.Firebase;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,15 +14,20 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import android.util.Log;
 import android.view.View;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class map extends FragmentActivity implements OnMapReadyCallback
-{
+public class map extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
+
     @Override
-    protected  void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
         Firebase.setAndroidContext(this);
 
@@ -28,10 +35,13 @@ public class map extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+//        Log.d("Username6: ", String.valueOf(userName.get("userName")));
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
 
     }
 
@@ -44,9 +54,11 @@ public class map extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+    final ArrayList<ArrayList> newArray = test.nest;
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        ArrayList<ArrayList> newArray = test.nest;
         mMap = googleMap;
         ArrayList<LatLng> latlngs = new ArrayList<>();
 
@@ -68,24 +80,32 @@ public class map extends FragmentActivity implements OnMapReadyCallback
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 @Override
                 public void onInfoWindowClick(Marker marker) {
-                    Intent intent1 = new Intent(getApplicationContext(), reviewlandingpage.class);
-                    startActivity(intent1);
+                    passArrayList();
+
                 }
 
             });
         }
     }
-     public void onSignout(View v)
-     {
-         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-         startActivity(intent);
-         this.finish();
-     }
 
-    public void onBack(View v)
-    {
+    public void onSignout(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void onBack(View v) {
         Intent intent = new Intent(getApplicationContext(), test.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private void passArrayList() {
+        Intent intent = new Intent(getApplicationContext(), makereview.class);
+        intent.putExtra("array_list", newArray);
+        String userName = getIntent().getStringExtra("userName");
+        intent.putExtra("userName", userName);
+        Log.d("Username6: ", userName);
+        startActivity(intent);
     }
 }
