@@ -22,11 +22,11 @@ public class makereview extends AppCompatActivity {
     {
         RatingBar mRatingBar = (RatingBar) findViewById(R.id.ratingBar);
         EditText editText = (EditText) findViewById(R.id.editText);
-        TextView debug = findViewById(R.id.debug);
+
         /*Insert Review and star rating into the database
         * Then return to reviewlandingpage*/
 
-        //debug.setText(mRatingBar.toString());
+
         Intent intent = new Intent(getApplicationContext(), reviewlandingpage.class);
         startActivity(intent);
     }
