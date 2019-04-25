@@ -14,7 +14,7 @@ public class readreview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_readreview);
-        /*Pull reviews and display three highest results
+        /*Pull reviews from database and display some of the best reviews
 
          */
 
