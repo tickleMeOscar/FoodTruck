@@ -34,10 +34,10 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/submitReview"
+            android:id="@+id/readReview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit Review" />
+            android:text="Back" />
 
     </LinearLayout>
 </RelativeLayout>
